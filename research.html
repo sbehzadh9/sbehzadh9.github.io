@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Research Highlights – Seyed Mohammadreza Mousavi</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    :root {
+      --bg-color: #ffffff;
+      --text-color: #000000;
+      --link-color: #003366;
+      --header-bg: #003366;
+      --nav-link-color: #ffffff;
+      --footer-bg: #f0f0f0;
+      --footer-color: #555;
+    }
+    body.dark-mode {
+      --bg-color: #121212;
+      --text-color: #f5f5f5;
+      --link-color: #66ccff;
+      --header-bg: #1f1f1f;
+      --nav-link-color: #ffffff;
+      --footer-bg: #1a1a1a;
+      --footer-color: #999;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      transition: background 0.3s, color 0.3s;
+    }
+    header {
+      background-color: var(--header-bg);
+      padding: 1.5rem;
+      text-align: center;
+    }
+    header h1 {
+      color: white;
+    }
+    nav ul {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0 0;
+    }
+    nav ul li a {
+      color: var(--nav-link-color);
+      text-decoration: none;
+      font-weight: bold;
+    }
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    .highlight {
+      border-left: 4px solid var(--link-color);
+      padding: 1rem;
+      margin-bottom: 2rem;
+      background: #f8f8f8;
+    }
+    body.dark-mode .highlight {
+      background: #1e1e1e;
+    }
+    .highlight h3 {
+      margin-top: 0;
+    }
+    .highlight a {
+      color: var(--link-color);
+      text-decoration: none;
+      margin-right: 1rem;
+    }
+    footer {
+      background-color: var(--footer-bg);
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: var(--footer-color);
+      margin-top: 3rem;
+    }
+    .toggle-btn {
+      margin-top: 1rem;
+    }
+    .toggle-btn button {
+      padding: 0.4rem 1rem;
+      border: 1px solid var(--text-color);
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+nav ul li a.active {
+  background-color: #ffffff; /* Light mode active */
+  color: #003366;
+  padding: 0.3rem 0.7rem;
+  border-radius: 5px;
+}
+
+body.dark-mode nav ul li a.active {
+  background-color: #66ccff; /* Dark mode active */
+  color: #000000;
+}
+p {
+    text-align: justify;
+    line-height: 1.6;
+  }
+  </style>
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle('dark-mode');
+      localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+    }
+    window.onload = function () {
+      if (localStorage.getItem('theme') === 'dark') {
+        document.body.classList.add('dark-mode');
+      }
+    }
+  </script>
+</head>
+<script>
+  function toggleTheme() {
+    document.body.classList.toggle('dark-mode');
+    localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+  }
+
+  window.onload = function () {
+    if (localStorage.getItem('theme') === 'dark') {
+      document.body.classList.add('dark-mode');
+    }
+  }
+</script>
+<body>
+  <header>
+    <h1>Seyed Mohammadreza Mousavi</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="research.html" class="active">Research Highlights</a></li>
+        <li><a href="publications.html">Publications</a></li>
+		<li><a href="honors.html">Honors & Awards</a></li>
+		<li><a href="certificate.html">Certificates</a></li>
+        <li><a href="assets/cv.pdf" download>CV</a></li>
+      </ul>
+    </nav>
+    <div class="toggle-btn">
+      <button onclick="toggleTheme()">🌙 Toggle Dark/Light Mode</button>
+    </div>
+  </header>
+
+  <main>
+    <h2>Research Highlights</h2>
+
+    <div class="highlight">
+  <h3>Lithium Battery State of Health Estimation: A Novel Octave and LSTM Hybrid Neural Network Approach</h3>
+  <p><strong>Abstract:</strong> The lithium battery (LIB) has emerged as a prominent area of research in energy and industrial applications, due to its superior energy density and efficient energy delivery capabilities. This study addresses the critical requirement for accurate State of Health (SOH) estimation as a significant challenge. The primary objective of this study is to utilize key battery health characteristic parameters to improve the accuracy and computational speed of SOH. Significant gaps have been identified in recent methodologies, particularly in terms of SOH estimation accuracy, computational speed, and simulation parameters. To address these limitations, a novel hybrid neural network (NN) approach is proposed, integrating octave convolution (OCT) and long short-term memory (LSTM). To demonstrate the effectiveness of the proposed method in the optimization process, a comparative analysis is conducted against Convolutional Neural Networks (CNN), OCT, LSTM, and CNN-LSTM architectures. The results indicate a significant reduction in the mean squared error (MSE), decreasing from 80.21 percent in CNN to 0.0758 percent in the proposed OCT-LSTM model. Furthermore, the root mean square error (RMSE) exhibits a substantial reduction of 64.91 percent and 58.14 percent compared to the LSTM and CNN-LSTM models, respectively. The simulation parameters used in this study were reduced from 41,228 for the CNN-LSTM model to 38,668 for the OCT-LSTM model. Empirical results show that the proposed method outperforms state-of-the-art methods in the number of parameters, MSE, RMSE, and estimation accuracy. These findings highlight the method's enhanced efficiency, computational speed, and precision, emphasizing its potential as a significant advancement in this domain.</p>
+
+  <div style="text-align: center; margin: 1rem 0;">
+    <img src="assets/graphical-abstract.png" alt="Graphical Abstract for Battery SOH Paper" style="max-width: 100%; border: 1px solid #ccc; border-radius: 5px;"/>
+    <p style="font-style: italic; color: var(--footer-color); font-size: 0.9rem;">Graphical abstract of the proposed OCT-LSTM method</p>
+  </div>
+
+  <a href="assets/battery-soh-paper.pdf" target="_blank">📄 Full Paper (PDF)</a>
+  <!--<a href="https://youtu.be/sample-video-battery" target="_blank">▶️ Watch Presentation</a>-->
+</div>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Seyed Mohammadreza Mousavi</p>
+  </footer>
+</body>
+</html>

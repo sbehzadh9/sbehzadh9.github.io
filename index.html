@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Seyed Behzad Hosseini</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Same style code as provided */
+    /* [Keep the full style block unchanged] */
+  </style>
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle('dark-mode');
+      localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+    }
+
+    window.onload = function () {
+      if (localStorage.getItem('theme') === 'dark') {
+        document.body.classList.add('dark-mode');
+      }
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <h1>Seyed Behzad Hosseini</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="research.html">Research Highlights</a></li>
+        <li><a href="publications.html">Publications</a></li>
+        <li><a href="honors.html">Honors & Awards</a></li>
+        <li><a href="certificate.html">Certificates</a></li>
+        <li><a href="assets/cv.pdf" download>CV</a></li>
+      </ul>
+    </nav>
+    <div class="toggle-btn">
+      <button onclick="toggleTheme()">🌙 Toggle Dark/Light Mode</button>
+    </div>
+  </header>
+  <main>
+    <img src="assets/profile.jpg" alt="Profile picture" class="profile-img" />
+    <section>
+      <h2>Biography</h2>
+      <p>
+        Hello! I'm <strong>Seyed Behzad Hosseini</strong>, an AI researcher and developer with a strong background in
+        <em>computer vision</em>, <em>robotics</em>, and <em>deep learning</em>. I currently work at 
+        <strong>Software Motion</strong> as a Robotic and Computer Vision Developer, leading projects involving AGV systems, SLAM, and sensor calibration.
+      </p>
+      <p>
+        I’ve previously worked at <strong>ITTALIEH</strong> and <strong>Tecvico</strong>, where I developed deep learning systems for OCR, medical image segmentation, and object detection. My focus has always been on practical applications of AI and CV in industrial and healthcare domains.
+      </p>
+    </section>
+
+    <section>
+      <h2>Research Interests</h2>
+      <ul>
+        <li><strong>Computer Vision</strong>: Image segmentation, detection, tracking, retinal image analysis</li>
+        <li><strong>Robotics</strong>: SLAM, sensor fusion, robotic perception</li>
+        <li><strong>Deep Learning</strong>: Lightweight architectures, attention mechanisms, GANs</li>
+        <li><strong>Natural Language Processing</strong>: Text recognition in prescriptions, OCR systems</li>
+        <li><strong>AI in Healthcare</strong>: PET-CT analysis, brain tumor detection, retinal segmentation</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Education</h2>
+      <div style="text-align: left; max-width: 800px; margin: auto;">
+        <p><strong>Sadjad University of Technology</strong>, Mashhad, Iran  
+        <br>M.Sc. in Artificial Intelligence, 2017–2020  
+        <br><em>Thesis:</em> Hybrid method for generating markers to improve image segmentation of the Watershed algorithm  
+        <br><em>Thesis Grade:</em> 19.5/20; Ranked first in class</p>
+
+        <br />
+
+        <p><strong>Imam Reza International University</strong>, Mashhad, Iran  
+        <br>B.Sc. in Software Engineering, 2013–2017  
+        <br><em>Thesis:</em> Developing an Android app with Unity engine  
+        <br><em>Thesis Grade:</em> 19/20</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Connect</h2>
+      <div class="social-links">
+        <a href="mailto:behzad.onlive@gmail.com">📧 Email</a>
+        <a href="https://github.com/your-github-here" target="_blank">💻 GitHub</a>
+        <a href="https://www.linkedin.com/in/seyed-behzad-hossaini9" target="_blank">🔗 LinkedIn</a>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2025 Seyed Behzad Hosseini</p>
+  </footer>
+</body>
+</html>

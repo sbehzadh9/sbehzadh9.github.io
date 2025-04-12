@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Publications – Seyed Mohammadreza Mousavi</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    :root {
+      --bg-color: #ffffff;
+      --text-color: #000000;
+      --link-color: #003366;
+      --header-bg: #003366;
+      --nav-link-color: #ffffff;
+      --footer-bg: #f0f0f0;
+      --footer-color: #555;
+    }
+    body.dark-mode {
+      --bg-color: #121212;
+      --text-color: #f5f5f5;
+      --link-color: #66ccff;
+      --header-bg: #1f1f1f;
+      --nav-link-color: #ffffff;
+      --footer-bg: #1a1a1a;
+      --footer-color: #999;
+    }
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      transition: background 0.3s, color 0.3s;
+    }
+    header {
+      background-color: var(--header-bg);
+      padding: 1.5rem;
+      text-align: center;
+    }
+    header h1 {
+      color: white;
+      margin-bottom: 0.5rem;
+    }
+    nav ul {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0 0;
+    }
+    nav ul li a {
+      color: var(--nav-link-color);
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav ul li a:hover {
+      text-decoration: underline;
+    }
+    .toggle-btn {
+      margin-top: 1rem;
+    }
+    .toggle-btn button {
+      padding: 0.4rem 1rem;
+      border: 1px solid var(--text-color);
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    .pub {
+      margin-bottom: 2rem;
+    }
+    .pub h3 {
+      margin-bottom: 0.3rem;
+    }
+    .pub p {
+      margin: 0.2rem 0;
+    }
+    footer {
+      background-color: var(--footer-bg);
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: var(--footer-color);
+    }
+nav ul li a.active {
+  background-color: #ffffff; /* Light mode active */
+  color: #003366;
+  padding: 0.3rem 0.7rem;
+  border-radius: 5px;
+}
+
+body.dark-mode nav ul li a.active {
+  background-color: #66ccff; /* Dark mode active */
+  color: #000000;
+}
+  </style>
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle('dark-mode');
+      localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+    }
+    window.onload = function () {
+      if (localStorage.getItem('theme') === 'dark') {
+        document.body.classList.add('dark-mode');
+      }
+    }
+  </script>
+</head>
+<script>
+  function toggleTheme() {
+    document.body.classList.toggle('dark-mode');
+    localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+  }
+
+  window.onload = function () {
+    if (localStorage.getItem('theme') === 'dark') {
+      document.body.classList.add('dark-mode');
+    }
+  }
+</script>
+<body>
+  <header>
+    <h1>Seyed Mohammadreza Mousavi</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="research.html">Research Highlights</a></li>
+        <li><a href="publications.html" class="active">Publications</a></li>
+		<li><a href="honors.html">Honors & Awards</a></li>
+		<li><a href="certificate.html">Certificates</a></li>
+        <li><a href="assets/cv.pdf" download>CV</a></li>
+      </ul>
+    </nav>
+    <div class="toggle-btn">
+      <button onclick="toggleTheme()">🌙 Toggle Dark/Light Mode</button>
+    </div>
+  </header>
+  <main>
+    <h2>Publications</h2>
+    <div class="pub">
+      <h3>Recognition of characters using a gated convolutional and recurrent neural network architecture</h3>
+      <p><strong>Authors:</strong> S. M. Mousavi, A. B. Toosi</p>
+      <p><strong>Journal:</strong> Journal of Soft Computing and Information Technology (2024)</p>
+      <p><a href="http://www.jscit.nit.ac.ir/article_212386.html?lang=en" target="_blank">🔗 Read Article</a></p>
+    </div>
+    <div class="pub">
+      <h3>Lithium Battery SOH Estimation: A Novel Octave and LSTM Hybrid Neural Network Approach</h3>
+      <p><strong>Authors:</strong> S. M. Mousavi, A. Rahimian Zariv, J. Hamidzadeh</p>
+      <p><strong>Conference:</strong> 12th Iranian Conference on Renewable Energies and Distributed Generation (ICREDG 2025)</p>
+      <p><a href="https://icredg2025.qut.ac.ir/" target="_blank">🔗 Conference Website</a></p>
+    </div>
+    <div class="pub">
+      <h3>GCRCR: Gated Convolutional and Recurrent Character Recognition</h3>
+      <p><strong>Authors:</strong> S. M. Mousavi, A. B. Toosi</p>
+      <p><strong>Status:</strong> Submitted to IJDAR (2025)</p>
+    </div>
+    <div class="pub">
+      <h3>A hybrid method for generating markers to improve the image segmentation of the watershed algorithm</h3>
+      <p><strong>Authors:</strong> S. B. Hossaini, S. M. Mousavi, A. B. Toosi</p>
+      <p><strong>Status:</strong> Submitted to Tabriz Journal of Electrical Engineering</p>
+    </div>
+    <h3>External Profiles</h3>
+    <p>
+      🔗 <a href="https://scholar.google.com" target="_blank">Google Scholar</a><br>
+      💼 <a href="https://www.linkedin.com/in/seyed-mohammadreza-mousavi/" target="_blank">LinkedIn</a><br>
+      💻 <a href="https://github.com/seyed-mohammadreza-mousavi" target="_blank">GitHub</a>
+    </p>
+  </main>
+  <footer>
+    <p>&copy; 2025 Seyed Mohammadreza Mousavi</p>
+  </footer>
+</body>
+</html>
