@@ -101,46 +101,15 @@ document.querySelectorAll('.skills-category').forEach((category, index) => {
 const contactForm = document.querySelector('.contact-form');
 if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-
-        // Prefer native HTML5 validation for reliability
+        // If invalid, block and show native messages
         if (!this.checkValidity()) {
+            e.preventDefault();
             this.reportValidity();
             return;
         }
-
-        const nameInput = this.elements.namedItem('name');
-        const emailInput = this.elements.namedItem('email');
-        const messageInput = this.elements.namedItem('message');
-
-        const name = (nameInput?.value || '').trim();
-        const email = (emailInput?.value || '').trim();
-        const message = (messageInput?.value || '').trim();
-
-        if (!isValidEmail(email)) {
-            showNotification('Please enter a valid email address', 'error');
-            emailInput?.focus();
-            return;
-        }
-
-        const submitBtn = this.querySelector('button[type="submit"]');
-        const prevText = submitBtn?.textContent;
-        if (submitBtn) {
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Sending...';
-        }
-
-        try {
-            // Submit to FormSubmit
-            this.submit();
-            showNotification('Message submitted. Thank you!', 'success');
-        } catch (err) {
-            showNotification('Failed to submit. Please try again.', 'error');
-            if (submitBtn) {
-                submitBtn.disabled = false;
-                submitBtn.textContent = prevText;
-            }
-        }
+        // If valid, allow native POST to FormSubmit. Optionally show a quick toast.
+        // Do NOT call preventDefault here; do NOT call this.submit() either.
+        showNotification('Sending your message…', 'info');
     });
 }
 
