@@ -454,7 +454,7 @@ body {
 
 .timeline-item:nth-child(odd) .timeline-content {
     margin-left: 0;
-    margin-right: 50%;
+    margin-right: 51%;
     padding-right: 2rem;
     text-align: right;
 }
@@ -523,6 +523,32 @@ body {
     color: #cf59e6;
     font-size: 0.9rem;
     line-height: 1.6;
+}
+
+/* Experience job header */
+.job-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+}
+
+.job-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.job-duration {
+    color: #6bc5f8;
+    font-size: 0.95rem;
+    white-space: nowrap;
+    padding: 0.25rem 0.5rem;
+    border: 1px solid rgba(107, 197, 248, 0.35);
+    border-radius: 999px;
+    background: rgba(107, 197, 248, 0.08);
+    height: fit-content;
 }
 
 /* Education Section */
@@ -862,7 +888,7 @@ body {
 
     .timeline-item:nth-child(odd) .timeline-content,
     .timeline-item:nth-child(even) .timeline-content {
-        margin-left: 50px;
+        margin-left: 51px;
         margin-right: 0;
         padding-left: 2rem;
         padding-right: 0;
@@ -934,6 +960,16 @@ body {
 
     .aboutHeadingP {
         width: 200px;
+    }
+
+    .job-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .job-duration {
+        font-size: 0.9rem;
     }
 }
 
@@ -1030,3 +1066,57 @@ body {
     opacity: 1;
     transform: translateY(0);
 } 
+
+.timeline-content {
+  position: relative; /* anchor for absolute child */
+}
+
+.job-duration-left {
+  position: absolute;
+  left: -160px;   /* sits in the gutter; tweak with the padding above */
+  top: 0;
+  /* existing .job-duration visuals already apply */
+  /* optional: stronger alignment */
+  transform: translateY(2px);
+}
+
+/* When stacked on mobile, put the date back above the text */
+@media (max-width: 768px) {
+  .timeline { padding-left: 0; }
+  .job-duration-left {
+    position: static;
+    display: inline-block;
+    margin-bottom: 0.5rem;  /* sits right above bullets/paragraph */
+  }
+}
+/* Put the date in the center gutter */
+.timeline-content { position: relative; }
+
+.job-duration-gutter {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  /* keeps your existing visuals from .job-duration */
+}
+
+/* For left-side cards (odd), push date into the center gutter (to the right) */
+.timeline-item:nth-child(odd) .job-duration-gutter {
+  right: -250px;     /* tweak:  -160 to -220 depending on taste */
+  text-align: left;
+}
+
+/* For right-side cards (even), push date into the center gutter (to the left) */
+.timeline-item:nth-child(even) .job-duration-gutter {
+  left: -250px;      /* tweak:  -160 to -220 */
+  text-align: right;
+}
+
+/* Mobile: stack normally above text */
+@media (max-width: 768px) {
+  .job-duration-gutter {
+    position: static;
+    transform: none;
+    display: inline-block;
+    margin-bottom: 0.5rem;
+  }
+}
