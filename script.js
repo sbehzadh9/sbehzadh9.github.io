@@ -100,43 +100,46 @@ document.querySelectorAll('.skills-category').forEach((category, index) => {
 // Contact form handling
 const contactForm = document.querySelector('.contact-form');
 if (contactForm) {
-    contactForm.addEventListener('submit', async function(e) {
+    contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
-        
-        const name = this.querySelector('input[name="name"]').value.trim();
-        const email = this.querySelector('input[name="email"]').value.trim();
-        const message = this.querySelector('textarea[name="message"]').value.trim();
-        
-        if (!name || !email || !message) {
-            showNotification('Please fill in all fields', 'error');
+
+        // Prefer native HTML5 validation for reliability
+        if (!this.checkValidity()) {
+            this.reportValidity();
             return;
         }
+
+        const nameInput = this.elements.namedItem('name');
+        const emailInput = this.elements.namedItem('email');
+        const messageInput = this.elements.namedItem('message');
+
+        const name = (nameInput?.value || '').trim();
+        const email = (emailInput?.value || '').trim();
+        const message = (messageInput?.value || '').trim();
+
         if (!isValidEmail(email)) {
             showNotification('Please enter a valid email address', 'error');
+            emailInput?.focus();
             return;
         }
 
-        // Optional: disable button while submitting
         const submitBtn = this.querySelector('button[type="submit"]');
-        const prevText = submitBtn.textContent;
-        submitBtn.disabled = true;
-        submitBtn.textContent = 'Sending...';
+        const prevText = submitBtn?.textContent;
+        if (submitBtn) {
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+        }
 
         try {
-            // Let the browser submit the form to FormSubmit
+            // Submit to FormSubmit
             this.submit();
-            // Provide optimistic feedback
             showNotification('Message submitted. Thank you!', 'success');
         } catch (err) {
             showNotification('Failed to submit. Please try again.', 'error');
-        } finally {
-            // Re-enable button after a short delay (in case of SPA navigation)
-            setTimeout(() => {
-                if (submitBtn) {
-                    submitBtn.disabled = false;
-                    submitBtn.textContent = prevText;
-                }
-            }, 1500);
+            if (submitBtn) {
+                submitBtn.disabled = false;
+                submitBtn.textContent = prevText;
+            }
         }
     });
 }
