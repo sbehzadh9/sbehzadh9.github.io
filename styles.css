@@ -276,7 +276,7 @@ body {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    padding: 0px 0;
+    padding: 80px 0;
 }
 
 .about-section {
@@ -435,7 +435,7 @@ body {
 /* Experience Section */
 .timeline {
     position: relative;
-    max-width: 800px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
@@ -1244,12 +1244,12 @@ body {
 
 @keyframes bounce {
     0%, 20%, 50%, 80%, 100% {
-        transform: translate(-60%, 0);
+        transform: translate(-50%, 0);
     }
     40% {
-        transform: translate(-60%, -10px);
+        transform: translate(-50%, -10px);
     }
     60% {
-        transform: translate(-60%, -5px);
+        transform: translate(-50%, -5px);
     }
 }
