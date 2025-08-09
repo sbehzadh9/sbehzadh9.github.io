@@ -252,6 +252,9 @@ Update the social media links in the contact section:
 2. **Animations lagging**: Reduce animation complexity on mobile devices
 3. **Large file sizes**: Use image compression and remove unused CSS
 
+## License
+
+This project is open source and available under the [MIT License](LICENSE).
 
 ## Credits
 

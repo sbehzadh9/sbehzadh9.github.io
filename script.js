@@ -100,29 +100,44 @@ document.querySelectorAll('.skills-category').forEach((category, index) => {
 // Contact form handling
 const contactForm = document.querySelector('.contact-form');
 if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
+    contactForm.addEventListener('submit', async function(e) {
         e.preventDefault();
         
-        // Get form data
-        const formData = new FormData(this);
-        const name = this.querySelector('input[type="text"]').value;
-        const email = this.querySelector('input[type="email"]').value;
-        const message = this.querySelector('textarea').value;
+        const name = this.querySelector('input[name="name"]').value.trim();
+        const email = this.querySelector('input[name="email"]').value.trim();
+        const message = this.querySelector('textarea[name="message"]').value.trim();
         
-        // Simple validation
         if (!name || !email || !message) {
             showNotification('Please fill in all fields', 'error');
             return;
         }
-        
         if (!isValidEmail(email)) {
             showNotification('Please enter a valid email address', 'error');
             return;
         }
-        
-        // Simulate form submission
-        showNotification('Message sent successfully! I\'ll get back to you soon.', 'success');
-        this.reset();
+
+        // Optional: disable button while submitting
+        const submitBtn = this.querySelector('button[type="submit"]');
+        const prevText = submitBtn.textContent;
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+
+        try {
+            // Let the browser submit the form to FormSubmit
+            this.submit();
+            // Provide optimistic feedback
+            showNotification('Message submitted. Thank you!', 'success');
+        } catch (err) {
+            showNotification('Failed to submit. Please try again.', 'error');
+        } finally {
+            // Re-enable button after a short delay (in case of SPA navigation)
+            setTimeout(() => {
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = prevText;
+                }
+            }, 1500);
+        }
     });
 }
 
